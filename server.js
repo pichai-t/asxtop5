@@ -12,7 +12,7 @@ const app = express();
 const SERVER_PORT = 5000;
 
 app.get('/api', (req, res) => {
-    res.json( {"users": ["Pichai1", "Pichai2", "Pichai3", "Pichai5  "]} ); 
+    res.json( {"users": ["Pichai1Render", "Pichai2", "Pichai3", "Pichai5 Render "]} ); 
 });
 
 // Using Static
