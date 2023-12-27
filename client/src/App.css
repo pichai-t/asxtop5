@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* My CSS */
+
+.header {
+  background-color: #24262b;
+  font-size: 22px;
+  font-family: 'Poppins', serif;
+	color: #ffffff;
+	text-transform: capitalize;
+  padding: 1%;
+	margin-bottom: 15px;
+	font-weight: 400;
+	position: relative;
+}
+
+.header h1::before{
+	content: '';
+	position: absolute;
+	left: 1%;
+	bottom: 15px;	  
+  background-color: #06c;
+	height: 4px;
+	box-sizing: border-box;
+	width: 150px;
+}
+
+
+/*
+ CSS for the main interaction
+*/
+.tabset > input[type="radio"] {
+    position: absolute;
+    left: -200vw;
+  }
+  
+  .tabset .tab-panel {
+    display: none;
+  }
+  
+  .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+  .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+  .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+  .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+  .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+  .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+    display: block;
+  }
+  
+  /*
+   Styling
+  */
+  body {
+    font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+    color: #333;
+    font-weight: 300;
+  }
+  
+  .tabset > label {
+    position: relative;
+    display: inline-block;
+    padding: 15px 15px 25px;
+    border: 1px solid transparent;
+    border-bottom: 0;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .tabset > label::after {
+    content: "";
+    position: absolute;
+    left: 15px;
+    bottom: 10px;
+    width: 22px;
+    height: 4px;
+    background: #8d8d8d;
+  }
+  
+  input:focus-visible + label {
+    outline: 2px solid rgba(0,102,204,1);
+    border-radius: 3px;
+  }
+  
+  .tabset > label:hover,
+  .tabset > input:focus + label,
+  .tabset > input:checked + label {
+    color: #06c;
+  }
+  
+  .tabset > label:hover::after,
+  .tabset > input:focus + label::after,
+  .tabset > input:checked + label::after {
+    background: #06c;
+  }
+  
+  .tabset > input:checked + label {
+    border-color: #ccc;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+  }
+  
+  .tab-panel {
+    padding: 30px 0;
+    border-top: 1px solid #ccc;
+  }
+  
+  /*
+   Demo purposes only
+  */
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    padding: 30px;
+  }
+  
+  .tabset {
+    max-width: 65em;
+  }
+
+/*
+ END of CSS for the main interaction
+*/
+
+/* Footer CSS */
+body{
+	line-height: 1.6;
+	font-family: 'Poppins', sans-serif;
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+  padding: 50px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 10px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 30px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;	
+  background-color: #06c;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+
+
+.footer-col ul li:not(:last-child){
+	margin-bottom: 8px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
