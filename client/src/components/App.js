@@ -8,7 +8,8 @@ function App() {
   const [hightestdivyield, setHightestdivyield] = useState([{}]);
   
   useEffect( () => {
-    fetch("/api").then( 
+    // PULL DATA TO DISPLAY
+    fetch("/api/top5stocks").then( 
         response => response.json()).then(
           data => {
             setBackendData(data)
@@ -17,20 +18,7 @@ function App() {
   }, []);
 
   useEffect( () => {
-    fetch("/api/asx200listing", {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }} 
-        ).then( 
-        response => response.json()).then(
-          data => {
-            setAsx200listing(data);
-          }
-        )
-  }, []);
-
-  useEffect( () => {
+    // PULL DATA TO DISPLAY
     fetch("/api/hightestdivyield", {
       headers : { 
         'Content-Type': 'application/json',
@@ -44,9 +32,23 @@ function App() {
         )
   }, []);
 
+  useEffect( () => {
+    // PULL DATA TO DISPLAY
+    fetch("/api/asx200listing", {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }} 
+        ).then( 
+        response => response.json()).then(
+          data => {
+            setAsx200listing(data);
+          }
+        )
+  }, []);
 
   return (
-   <div>
+  <div>
    <div className="header">
      <h1 > ASX Top 5 </h1>
    </div>
@@ -62,6 +64,8 @@ function App() {
     <label htmlFor="tab3">ASX 200 Listing</label>
     
     <div className="tab-panels">
+
+     {/* SECTION 1 */}
       <section id="marzen" className="tab-panel">
         <h2>Data 1</h2>
       <div>
@@ -73,15 +77,19 @@ function App() {
        )) )
       }
       </div>
-
     </section>
-      <section id="rauchbier" className="tab-panel">
-        <h2>6B. Rauchbier</h2>
-        <p> xxx </p>
-      </section>
-      <section id="dunkles" className="tab-panel">
-        <h2>Stocks</h2>
 
+    {/* SECTION 2 */}
+    <section id="rauchbier" className="tab-panel">
+      <h2>DATA 2</h2>
+        <p> xxx </p>
+        <p> xxx </p>
+        <p> xxx </p>
+    </section>
+    
+    {/* SECTION 3 */}
+    <section id="dunkles" className="tab-panel">
+        <h2>ASX 200 Stock listing</h2>
           { (typeof asx200listing.stock === 'undefined') ? (
           <h3> Loading....</h3>
           ) : (
@@ -89,11 +97,9 @@ function App() {
             <p key={id}>  {st.symbol} {st.dividendYield.raw}</p>
           )) )
           }
-
       </section>
     </div>    
- </div>
-
+  </div>
  <div>
   <footer className="footer">
   	 <div className="container">
@@ -132,7 +138,6 @@ function App() {
   	 </div>
   </footer>
 </div>
-
 </div>
 
 )}
