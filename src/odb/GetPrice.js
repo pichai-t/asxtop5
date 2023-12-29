@@ -23,7 +23,7 @@ async function GetPrice(stock) {
   try {    
     const response = await axios.request(options);	
     var jsonObj = response.data;  
-    console.log(response.data);
+   // console.log(response.data);
     [jsonObj].map(function(dat) {
         var newObj = {};
         for (var i = 0; i < c.stockFields.length; i++) {
@@ -33,6 +33,10 @@ async function GetPrice(stock) {
         }
         newJSON.price.push(newObj);
     });      
+    console.log(newJSON);
+    //
+    // TODO: PROBLEM IS HERE????  maybe newJSON.price? 
+    // 
     return newJSON; // document.write(JSON.stringify(newJSON));
   } catch (error) {
     console.error(error);

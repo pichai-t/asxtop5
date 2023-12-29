@@ -3,14 +3,15 @@ import mongoose, { Schema } from "mongoose";
 //1. Setup Schema for each
 const stockSchema = new Schema(
     {
-      symbol: {type: String}, 
-      // dividendYield: {type: String}, 
-      // dividendRate: {type: String}, 
-      // trailingPE: {type: String}, 
-      ask: {type: String}, 
-      bid: {type: String}    
+      symbol: {type: String},
+      regularMarketPrice: {type: Object},
+      regularMarketDayHigh: {type: Object},
+      regularMarketDayLow: {type: Object},
+      epsCurrentYear: {type: Object},
+      trailingPE: {type: Object},
+      ask: {type: Object},
+      bid: {type: Object}  
     }
-// ["symbol", "dividendYield", "dividendRate", "trailingPE", "ask","bid"];
 );
 const configSchema = new Schema(
   {
