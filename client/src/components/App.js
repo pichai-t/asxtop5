@@ -4,6 +4,8 @@ import '../App.css';
 function App() {
 
   const [backendData, setBackendData] = useState([{}]);
+  const [asx200listing, setAsx200listing] = useState([{}]);
+  const [hightestdivyield, setHightestdivyield] = useState([{}]);
   
   useEffect( () => {
     fetch("/api").then( 
@@ -14,53 +16,89 @@ function App() {
         )
   }, []);
 
+  useEffect( () => {
+    fetch("/api/asx200listing", {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }} 
+        ).then( 
+        response => response.json()).then(
+          data => {
+            setAsx200listing(data);
+          }
+        )
+  }, []);
+
+  useEffect( () => {
+    fetch("/api/hightestdivyield", {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }} 
+        ).then( 
+        response => response.json()).then(
+          data => {
+            setHightestdivyield(data);
+          }
+        )
+  }, []);
+
+
   return (
    <div>
-   <div class="header">
-     <h1 > Top 5 ASX </h1>
+   <div className="header">
+     <h1 > ASX Top 5 </h1>
    </div>
 
-   <div class="tabset">  
-    <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked/>
-    <label for="tab1">Märzen</label>
+   <div className="tabset">  
+    <input type="radio" name="tabset" id="tab1" aria-controls="marzen" />
+    {/* https://www.marketindex.com.au/scans/fundamentally-sound */}    
+    <label htmlFor="tab1"> Top 5 Stocks (by MarketIndex.com)</label>    
     <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier" />
-    <label for="tab2">Rauchbier</label>
-    <input type="radio" name="tabset" id="tab3" aria-controls="dunkles" />
-    <label for="tab3">Dunkles Bock</label>
+    {/* https://www.marketindex.com.au/highest-dividend-yield */}
+    <label htmlFor="tab2">  Highest Dividend Yield (1 yr)</label>
+    <input type="radio" name="tabset" id="tab3" aria-controls="dunkles" defaultChecked/>
+    <label htmlFor="tab3">ASX 200 Listing</label>
     
-    <div class="tab-panels">
-      <section id="marzen" class="tab-panel">
+    <div className="tab-panels">
+      <section id="marzen" className="tab-panel">
         <h2>Data 1</h2>
-
       <div>
-      { (typeof backendData.users === 'undefined') ? (
+      { (typeof backendData.price === 'undefined') ? (
        <h3> Loading....</h3>
        ) : (
-         backendData.users.map(  (user, id) => (
-         <p key={id}>  {user} </p>
+         backendData.price.map( (pr, id) => (
+         <p key={id}>  {pr.symbol} </p>
        )) )
       }
       </div>
 
     </section>
-      <section id="rauchbier" class="tab-panel">
+      <section id="rauchbier" className="tab-panel">
         <h2>6B. Rauchbier</h2>
-        <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
-        <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
+        <p> xxx </p>
       </section>
-      <section id="dunkles" class="tab-panel">
-        <h2>6C. Dunkles Bock</h2>
-        <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
-        <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
+      <section id="dunkles" className="tab-panel">
+        <h2>Stocks</h2>
+
+          { (typeof asx200listing.stock === 'undefined') ? (
+          <h3> Loading....</h3>
+          ) : (
+            asx200listing.stock.map( (st, id) => (
+            <p key={id}>  {st.symbol} {st.dividendYield.raw}</p>
+          )) )
+          }
+
       </section>
     </div>    
  </div>
 
  <div>
-  <footer class="footer">
-  	 <div class="container">
-  	 	<div class="row">
-  	 		<div class="footer-col">
+  <footer className="footer">
+  	 <div className="container">
+  	 	<div className="row">
+  	 		<div className="footer-col">
   	 			<h4>company</h4>
   	 			<ul>
   	 				<li><a href="#">about us</a></li>
@@ -68,26 +106,26 @@ function App() {
   	 				<li><a href="#">privacy policy</a></li>
   	 			</ul>
   	 		</div>
-  	 		<div class="footer-col">
+  	 		<div className="footer-col">
   	 			<h4>information</h4>
   	 			<ul>
             <li><a href="#">Our calculations</a></li>
   	 				<li><a href="#">FAQ</a></li>
   	 			</ul>
   	 		</div>
-  	 		<div class="footer-col">
+  	 		<div className="footer-col">
   	 			<h4>feedback</h4>
   	 			<ul>
   	 				<li><a href="#">Email us</a></li>
   	 			</ul>
   	 		</div>
-  	 		{/* <div class="footer-col">
+  	 		{/* <div className="footer-col">
   	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+  	 			<div className="social-links">
+  	 				<a href="#"><i className="fab fa-facebook-f"></i></a>
+  	 				<a href="#"><i className="fab fa-twitter"></i></a>
+  	 				<a href="#"><i className="fab fa-instagram"></i></a>
+  	 				<a href="#"><i className="fab fa-linkedin-in"></i></a>
   	 			</div>
   	 		</div> */}
   	 	</div>
