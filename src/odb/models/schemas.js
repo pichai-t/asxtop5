@@ -4,13 +4,15 @@ import mongoose, { Schema } from "mongoose";
 const stockSchema = new Schema(
     {
       symbol: {type: String},
-      regularMarketPrice: {type: Object},
-      regularMarketDayHigh: {type: Object},
-      regularMarketDayLow: {type: Object},
-      epsCurrentYear: {type: Object},
-      trailingPE: {type: Object},
-      ask: {type: Object},
-      bid: {type: Object}  
+      typeDisp: {type: String, default: "n/a"}, 
+      regularMarketPrice: {type: Object, default: {raw: "n/a", fmt: "n/a"}},
+      regularMarketDayHigh: {type: Object, default: {raw: "n/a", fmt: "n/a"}},
+      regularMarketDayLow: {type: Object, default: {raw: "n/a", fmt: "n/a"}},
+      epsCurrentYear: {type: Object, default: {raw: "n/a", fmt: "n/a"}},
+      trailingPE: {type: Object, default: {raw: "n/a", fmt: "n/a"}},
+      ask: {type: Object, default: {raw: "n/a", fmt: "n/a"}},
+      bid: {type: Object, default: {raw: "n/a", fmt: "n/a"}},
+      longname:  {type: String, default: "n/a"}
     }
 );
 const configSchema = new Schema(

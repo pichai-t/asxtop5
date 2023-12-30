@@ -1,4 +1,3 @@
-import express from "express";
 import schemas from "./models/schemas.js";
 
 async function SavePrice(price) {
