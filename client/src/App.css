@@ -25,6 +25,9 @@
 	width: 150px;
 }
 
+h2 {
+  padding: 16px;
+}
 
 /*
  CSS for the main interaction
@@ -54,6 +57,8 @@
     font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
     color: #333;
     font-weight: 300;
+    margin: 20px;
+    padding: 30pm;
   }
   
   .tabset > label {
@@ -112,11 +117,7 @@
   *:after {
     box-sizing: border-box;
   }
-  
-  body {
-    padding: 30px;
-  }
-  
+    
   .tabset {
     max-width: 65em;
   }
@@ -173,7 +174,6 @@ ul{
 	width: 50px;
 }
 
-
 .footer-col ul li:not(:last-child){
 	margin-bottom: 8px;
 }
@@ -220,3 +220,34 @@ ul{
     width: 100%;
 }
 }
+
+/* table */
+table {
+    width: 100%;
+    border-collapse: collapse;    
+    margin-left: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr {
+  border-bottom: 3px dashed #c1c1c1;
+  margin: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+    th, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    th {
+        text-align: center;
+    }
+}
+/* end table */

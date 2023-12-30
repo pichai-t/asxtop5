@@ -90,14 +90,39 @@ function App() {
     {/* SECTION 3 */}
     <section id="dunkles" className="tab-panel">
         <h2>ASX 200 Stock listing</h2>
+        <table>        
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th> High </th>
+                <th> Low </th>
+                <th> Ask </th>
+                <th> Bid </th>
+                <th> Earning Per Share </th>
+                <th> Price to Earning </th>
+            </tr>
+        </thead>
+        <tbody>
+          {/* DATA */}
           { (typeof asx200listing.stock === 'undefined') ? (
-          <h3> Loading....</h3>
-          ) : (
-            asx200listing.stock.map( (st, id) => (
-            <p key={id}>  {st.symbol} {st.dividendYield.raw}</p>
-          )) )
+          <h2> Loading....</h2>  ) : (
+            asx200listing.stock.map( (s, id) => (
+            <tr key={id}>            
+            <td>{s.symbol.substring(0,3)}</td> <td>{s.typeDisp.substring(0,3)} </td><td>${s.regularMarketPrice.fmt}</td> 
+            <td>${s.regularMarketDayHigh.fmt}</td> <td>${s.regularMarketDayLow.fmt}</td> 
+            <td>${s.ask.fmt}</td> <td>${s.bid.fmt}</td> 
+            <td>{s.epsCurrentYear.fmt}</td> <td>${s.trailingPE.fmt}</td> 
+
+            </tr>
+          )))
           }
-      </section>
+
+        </tbody>
+    </table>
+
+    </section>
     </div>    
   </div>
  <div>
