@@ -189,16 +189,14 @@ function App() {
   	 		<div className="footer-col">
   	 			<h4>company</h4>
   	 			<ul>
-  	 				<li><a href="#">about us</a></li>
-  	 				<li><a href="#">our services</a></li>
+  	 				<li><a href="#">about us</a></li>  	 				
   	 				<li><a href="#">privacy policy</a></li>
   	 			</ul>
   	 		</div>
   	 		<div className="footer-col">
   	 			<h4>information</h4>
   	 			<ul>
-            <li><a href="#">Our calculations</a></li>
-  	 				<li><a href="#">FAQ</a></li>
+            <li><a href="#">Our calculations</a></li>  	 				
   	 			</ul>
   	 		</div>
   	 		<div className="footer-col">
