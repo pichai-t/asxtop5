@@ -3,6 +3,7 @@ import * as c from "../common/Constants.js";
 import "dotenv/config.js";
 
 async function GetPriceAPI(stock) {
+  console.log(stock);
   const optionAPI = {
       method: "GET",
       url: process.env.RAPIDAPI_PRICE_URL + stock.toLowerCase(),
@@ -18,6 +19,7 @@ async function GetPriceAPI(stock) {
   try {
     const response = await axios.request(optionsPriceAPI);
     var jsonObj = response.data;
+    console.log(jsonObj);
     [jsonObj].map(function (dat) {
       for (var i = 0; i < c.priceFields.length; i++) {
         if (dat.hasOwnProperty(c.priceFields[i])) {
@@ -42,7 +44,7 @@ async function GetPriceAPI(stock) {
       }
     });
   } catch (error) {    
-    console.error(error.error);
+    console.error(error);
   }
 
   // ** 3) Hard-coded to calculate 'priceGrowth' field; 
@@ -51,6 +53,7 @@ async function GetPriceAPI(stock) {
     newObj["priceGrowth"] = (newObj["indicators"].quote[0].close[0] < newObj["regularMarketPrice"].raw) ? "Yes" : "No" ;
   }
 
+  console.log(newObj);
   newJSON.price.push(newObj);
   return newJSON; // document.write(JSON.stringify(newJSON));
 }

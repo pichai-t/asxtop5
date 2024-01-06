@@ -97,8 +97,9 @@ app.get("/updatehdy", async (req, res) => {
 app.get("/update", async (req, res) => {
 
   // if slice(0, 10) ===>  0, 1, 2, 3,...,8, 9  -- (10 numbers)
-  var base = 199;
-  const targetedStocks = c.ASX200STOCKS.slice(base, base+5);
+  var base = 0;
+  const targetedStocks = c.ASX200STOCKS.slice(base, 2);
+  console.log(targetedStocks);
 
   // Pull data from RAPID API and SAVE into MONGO DB
   const all200asx = await targetedStocks.map(async (st, id) => {
