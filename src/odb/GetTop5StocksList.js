@@ -1,6 +1,5 @@
 import schemas from "./models/schemas.js";
 import mongooseConnect from "./utils/mongooseConnect.js";
-
 import * as c from "../common/Constants.js";
 
 async function GetTop5StocksList() {

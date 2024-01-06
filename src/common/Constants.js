@@ -2,7 +2,6 @@
 // C O N S T A N T S
 //
 // ASX 200 Stock list
-export const ASX200STOCKSTEST = ["ALX"];
 export const ASX200STOCKS= [
   "360",
   "A2M",

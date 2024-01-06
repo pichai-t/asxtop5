@@ -47,14 +47,12 @@ function App() {
         )
   }, []);
 
-
   return (
-  <div>
-   <div className="header">
-     <h1 > ASX Top 5 </h1>
-   </div>
-
-   <div className="tabset">  
+    <div>
+    <div className="header">
+    <h1><img src="./img/favStarNormalSizeBW.png" alt="Star image" width="39" height="38" />  ASX Top 5</h1>                      
+    </div>
+    <div className="tabset">  
     <input type="radio" name="tabset" id="tab1" aria-controls="marzen" defaultChecked/>
     {/* https://www.marketindex.com.au/scans/fundamentally-sound */}    
     <label htmlFor="tab1"> Top 5 Stocks </label>    
@@ -69,17 +67,6 @@ function App() {
      {/* SECTION 1 */}
       <section id="marzen" className="tab-panel">
         <h2>Top 5 Stocks </h2>
-        <div className="container">
-          <br />
-          <h4> Criteria: </h4>
-          <ol>
-            <li> ASX 200 stocks only </li>
-            <li> Positive Price Growth (for the last 5 years)</li>
-            <li> Positive Dividend Growth (for the last 5 years)</li>
-            <li> Highest Dividend Yields (Currently)</li>
-          </ol>
-          <br />
-        </div>
         <table>        
         <thead>
             <tr>
@@ -111,13 +98,17 @@ function App() {
         </tbody>
     </table>
 
-
-
-
-
-
-
-
+        <div className="container ">
+          <br />
+          <h5> Criteria: </h5>
+          <ol>
+            <li> ASX 200 stocks only </li>
+            <li> Positive Price Growth (for the last 5 years)</li>
+            <li> Positive Dividend Growth (for the last 5 years)</li>
+            <li> Highest Dividend Yields (Currently)</li>
+          </ol>
+        </div>
+        
     </section>
 
     {/* SECTION 2 */}

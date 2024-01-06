@@ -71,7 +71,7 @@ app.get("/updatetop5", async (req, res) => {
     await SaveTop5Stocks(st);
   });
 
-  res.send("Hello.... /Regenerate TOP 5 STOCKS! ");
+  res.send("ADMIN: /updatetop5");
 });
 
 app.get("/updatehdy", async (req, res) => {
@@ -91,7 +91,7 @@ app.get("/updatehdy", async (req, res) => {
     await SaveHDY(st);
   });
 
-  res.send("Hello.... /Regenerate Highest Dividend Yield Yo!!! ");
+  res.send("ADMIN: /updatehdy");
 });
 
 app.get("/update", async (req, res) => {
@@ -117,7 +117,7 @@ app.get("/update", async (req, res) => {
     return rtn; // return for *.map()
   });
 
-  res.send("Hello.... /Update -- NEW !! ");
+  res.send("ADMIN: (main) /update");
 });
 
 app.get("*", async (req, res) => {
@@ -149,15 +149,7 @@ app.listen(SERVER_PORT, () => {
 //       trailingPE: { raw: 13.360869, fmt: "13.36" },
 //       ask: { raw: 90.73, fmt: "90.73" },
 //       bid: { raw: 90.72, fmt: "90.71" },
-//     },
-//     {
-//       symbol: "FMG.AX",
-//       dividendYield: { raw: 5.47, fmt: "5.47%" },
-//       dividendRate: { raw: 1.68, fmt: "1.68" },
-//       trailingPE: { raw: 13.360869, fmt: "13.36" },
-//       ask: { raw: 30.73, fmt: "30.73" },
-//       bid: { raw: 30.72, fmt: "30.71" },
-//     },
+//     }
 //   ],
 // });
 

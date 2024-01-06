@@ -29,6 +29,11 @@ h2 h3 h4 {
   padding: 16px;
 }
 
+ol {
+  padding-left: 3%;
+  font-weight: 500;
+}
+
 /*
  CSS for the main interaction
 */
